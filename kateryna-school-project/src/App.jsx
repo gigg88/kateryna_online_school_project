@@ -1,23 +1,32 @@
 import './App.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { Route, Routes } from "react-router-dom"
+import { Home } from "./pages/Home"
+import { BookList } from "./pages/BookList"
+import { Books } from "./pages/Books"
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-    <Navbar/>
-    <div className="content">
-      <Switch>
-        <Route path="/">
-          <Home />
+    <>
+   <nav>
+      <ul>
+        <li> <Link to="/">Home</Link></li>
+        <li> <Link to="/books">Books</Link></li>
+      </ul>
 
-        </Route>
-      </Switch>
-      </div>
-    </div>
-    </Router>
+    </nav>
+ 
+
+    <Routes>
+    <Route path="/" element ={<Home/>}/>
+    <Route path="/books" element ={<Books/>}/>
+    </Routes>
+
+   </>
     
-  );
+  )
+  
 }
+
+
 
 export default App;
